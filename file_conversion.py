@@ -5,7 +5,7 @@ import pandas as pd
 header_size = 6 #number of leading lines to ignore
 footer_size = 4500 #number of trailing lines to ingnore
 
-data_raw = np.genfromtxt("test.txt", delimiter=";", dtype=None, skip_header=header_size,
+data_raw = np.genfromtxt("testweekend_easter_eggs.txt", delimiter=";", dtype=None, skip_header=header_size,
                      skip_footer=footer_size, encoding=None) #generating a numpy array using ; as a delimiter
 
 data = np.array((len(data_raw), 2))
@@ -34,4 +34,6 @@ delta = start - ref
 for i in range(len(time_values)):
     time_values[i] = time_values[i] + delta
 
+#the variable time_values is the data converted to datetime64
 
+np.savetxt(time_values, "paris_easter_weekend_team1_datettime64list.txt")
